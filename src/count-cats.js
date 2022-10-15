@@ -19,7 +19,7 @@ function countCats(matrix) {
 
   let number = 0
 
-  let arrFlat = matrix.reduce((acc, arr) => [...acc, ...arr], 0)
+  let arrFlat = matrix.reduce((acc, arr) => [...acc, ...arr])
 
   for (let i of arrFlat) {
     if (i === '^^') number++
