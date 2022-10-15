@@ -15,12 +15,17 @@ const { NotImplementedError } = require('../extensions/index.js')
  *
  */
 function countCats(matrix) {
-  if (matrix === 0 || !Array.isArray()) return 0
+  if (matrix === 0 || !Array.isArray(matrix)) return 0
+
   let number = 0
-  for (let i of matrix) {
-    if (i.includes('^^')) number++
+
+  let arrFlat = matrix.reduce((acc, arr) => [...acc, ...arr], 0)
+
+  for (let i of arrFlat) {
+    if (i === '^^') number++
     else number
   }
+
   return number
 }
 
