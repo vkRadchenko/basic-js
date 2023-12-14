@@ -16,7 +16,8 @@ const { NotImplementedError } = require('../extensions/index.js')
  */
 function countCats(matrix) {
   if (matrix === 0 || !Array.isArray(matrix)) return 0
-
+  if (matrix.length === 0) return 0
+  
   let number = 0
 
   let arrFlat = matrix.reduce((acc, arr) => [...acc, ...arr])

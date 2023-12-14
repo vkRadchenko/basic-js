@@ -36,7 +36,9 @@ function dateSample(sampleActivity) {
     sampleActivity === '15.1' ||
     sampleActivity === '0' ||
     sampleActivity === '-5' ||
-    sampleActivity === '-55.8'
+    sampleActivity === '-55.8' ||
+    sampleActivity === ' ' ||
+    sampleActivity === ' \n\t\r'
   )
     return false
 
