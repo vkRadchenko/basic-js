@@ -44,30 +44,16 @@ function createDreamTeam(members) {
     return false
   }
 
-  let filterStr = members.map((el) =>
-    el === null ||
-    el === undefined ||
-    typeof el === 'object' ||
-    typeof el === 'number' ||
-    typeof el === 'boolean'
-      ? ''
-      : el.toString().replace(/\s+/g, '')
-  )
-  let arr = []
-  for (let i of filterStr) {
-    if (
-      typeof i === 'number' ||
-      typeof i === 'boolean' ||
-      typeof i === 'object' ||
-      typeof i === 'null' ||
-      typeof i === 'undefined'
-    ) {
-      return false
-    } else {
-      arr.push(i[0])
-    }
-  }
-  return arr.sort().join('').toUpperCase()
+  const validMembers = members
+    .filter((member) => typeof member === 'string')
+    .map((member) => member.trim())
+
+  const dreamTeamName = validMembers
+    .map((member) => member[0].toUpperCase())
+    .sort()
+    .join('')
+
+  return dreamTeamName
 }
 
 module.exports = {
